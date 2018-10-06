@@ -11,9 +11,9 @@ elif x>krawedz or y> krawedz or x<0 or y <0:
     print("Gracz znajduje się poza obszarem plnaszy")
 elif x<=margines and  margines <y< (krawedz-margines):
     print("gracz znajduje się w lewej krawedzi")
-elif x==margines and (krawedz-margines)<= y <= krawedz:
+elif x<=margines and (krawedz-margines)<= y <= krawedz:
     print("gracz znajduje się w lewym górnym rogu")
-elif margines<x<(krawedz-margines) and (krawedz-margines)< y <= krawedz:
+elif margines<x<(krawedz-margines) and (krawedz-margines)<= y <= krawedz:
     print("gracz znajduje się w gornej krawedzi")
 elif (krawedz-margines)<= x <=krawedz and (krawedz-margines)<=y<=krawedz:
     print("Gracz znajduje się w prawym górnym rogu")

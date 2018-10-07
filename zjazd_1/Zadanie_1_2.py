@@ -1,20 +1,18 @@
 
 suma =0
+liczby =[]
 
-while True:
+while len(liczby) <10:
 
     liczba = int(input("podaj liczbę:"))
-    liczby =[]
     liczby.append(liczba)
 
-
-    suma = suma + liczba
-    srednia = suma/sum(liczby)
+    srednia = sum(liczby)/len(liczby)
 
     print(liczby)
     print(f"Podałeś już:{sum(liczby)} liczb \nŚrednia: {srednia}")
 
 
-    if sum(liczby)==10:
+    if len(liczby)==10:
         print("Podałeś 10 liczb")
         break

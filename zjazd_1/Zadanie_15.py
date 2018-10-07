@@ -42,7 +42,7 @@ while True:
 
     if l_ruchow_po > l_ruchow:
         print(f"Oddalasz się od skarbu, wykonałeś:{a} ruchów")
-    elif l_ruchow_po < l_ruchow:
+    elif l_ruchow_po <= l_ruchow:
         print(f"Jesteś coraz bliżej skarbu, wykonales: {a} ruchów")
 
     if l_ruchow_po > 2* l_ruchow:

@@ -34,3 +34,14 @@ litery y: {il_y}
 """
 
 print(out)
+
+#inny sposób
+
+#tekst = str(input("Podaj dowolny teskt:"))
+# samogloski ='aieouy'
+
+# ile_samoglosek=0
+
+# for znak in tekst:
+#     if znak in samogloski:
+#         ile_samoglosek=+1

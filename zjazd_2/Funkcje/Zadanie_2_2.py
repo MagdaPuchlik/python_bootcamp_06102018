@@ -1,19 +1,5 @@
 def wiecej_niz(napis, liczba):
-
-    zbior={} # tu tworze słownik
-    zwrot =set() # tu tworzę zbior
-    for litera in napis:
-        litera = litera.lower()
-        zbior[litera]=zbior.get(litera,0)+1
-
-    print(zbior)
-
-    for key,value in zbior.items():
-        if value > liczba:
-            zwrot.add(key)
-
-    return zwrot
-
+    return{znak for znak in napis if napis.lower().count(znak) > liczba}
 
 
 def test_wiecej_niz_dla_pustego_napisu():

@@ -18,6 +18,7 @@ class dog:
 
 
 
+
 pies = dog()
 pies.bark()
 print(pies.energy)

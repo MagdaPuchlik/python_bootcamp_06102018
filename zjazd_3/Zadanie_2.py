@@ -6,6 +6,7 @@ class Employee:
         self.stawka = stawka
 
 
+
 def test_employee():
     pracownik = Employee('Jan','Nowak',100.0)
     assert pracownik.imie == 'Jan'

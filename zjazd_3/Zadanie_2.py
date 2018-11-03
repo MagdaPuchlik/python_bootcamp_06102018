@@ -4,22 +4,22 @@ class Employee:
         self.imie = imie
         self.nazwisko = nazwisko
         self.stawka = stawka
-        self.register_time=0
+        self.time = 0
         self.pay_salary()
 
-    def czas(self,hours):
-        self.register_time = hours
+    def register_time(self,hours):
+        self.time += hours
 
     def pay_salary(self):
-        if self.register_time ==0:
+        if self.time ==0:
             return 0
-        elif self.register_time <8:
-            to_pay = self.register_time * self.stawka
-            self.register_time =0
+        elif self.time <=8:
+            to_pay = self.time * self.stawka
+            self.time =0
             return to_pay
         else:
-            to_pay2 = (self.register_time - 8)*self.stawka*2 +800
-            self.register_time = 0
+            to_pay2 = (self.time - 8)*self.stawka*2 +800
+            self.time = 0
             return to_pay2
 
 
@@ -32,13 +32,22 @@ def test_employee():
 
 def test_pay_salary1():
     pracownik = Employee('Jan', 'Nowak', 100.0)
+    pracownik.register_time(5)
     assert pracownik.pay_salary() == 500
 
 
 def test_pay_salary2():
     pracownik = Employee('Jan', 'Nowak', 100.0)
+    pracownik.register_time(10)
     assert pracownik.pay_salary() == 1200
 
 def test_pay_salary3():
     pracownik = Employee('Jan', 'Nowak', 100.0)
+    pracownik.register_time(0)
     assert pracownik.pay_salary() == 0
+
+def test_pay_salary4():
+    pracownik = Employee('Jan', 'Nowak', 100.0)
+    pracownik.register_time(5)
+    pracownik.register_time(5)
+    assert pracownik.pay_salary() == 1200

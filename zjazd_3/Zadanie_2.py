@@ -22,6 +22,9 @@ class Employee:
             self.time = 0
             return to_pay
 
+    def __str__(self):
+        return f"Pracownik {self.imie} {self.nazwisko}"
+
 
 class PremiumEmployee(Employee):
 
@@ -36,21 +39,23 @@ class PremiumEmployee(Employee):
         to_pay = super().pay_salary()
         return to_pay + self.ekstra
 
-class Company(Employee):
-    def __init__(self,imie, nazwisko, stawka):
-        super().__init__(imie, nazwisko, stawka)
-        self.firma = 0
-        self.liczba = 0
+class Company:
 
-    def give_firma(self, company):
-        self.firma = company
+    def __init__(self,nazwa):
+        self.nazwa = nazwa
+        self.employees = set()
 
-    def give_liczba(self, size):
-        self.licza = size
+    def add_employee(self,employee):
+        self.employees.add(employee)
 
-    def pay_salary(self):
-        to_pay = super().pay_salary()
-        return to_pay * self.liczba
+    def size(self):
+        return len(self.employees)
+
+    def pay_all_salary(self):
+        sum_ =0
+        for e in self.employees:
+            sum_ += e.pay_salary()
+        return sum_
 
 
 def test_employee():
@@ -89,6 +94,16 @@ def test_premium():
     assert pracownik.pay_salary()==1500.0
 
 def test_company():
-    pracownik = Employee('Jan', 'Nowak', 100.0)
-    pracownik.register_time(5)
+    employee = Employee('Jan', 'Nowak', 100.0)
+    employee.register_time(5)
+    google = Company("google")
+    google.add_employee(employee)
+    assert google.size()==1
+    assert google.pay_all_salary==500
+    assert google.pay_all_salary==0
 
+    employee2 = Employee('JKrzysztof', 'Nowak', 200.0)
+    employee2.register_time(5)
+    employee.register_time(5)
+    google.add_employee(employee2)
+    assert google.pay_all_salary==1500

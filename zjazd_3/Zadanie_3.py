@@ -1,16 +1,28 @@
-class Company:
+class ElectricCar:
 
-    def __init__(self,nazwa):
+    def __init__(self, max_range):
+        self.max_range = max_range
+        self.possible_distance = max_range
+
+    def drive(self, distance):
+        if distance >= self.possible_distance:
+            can_travel = self.possible_distance
+            self.possible_distance = 0
+            return can_travel
+
+        self.possible_distance -= distance
+
+        return distance
+
+    def charge(self):
+         self.possible_distance = self.max_range
 
 
 
-
-    def give_firma(self, company):
-        self.firma = company
-
-    def give_liczba(self, size):
-        self.licza = size
-
-    def pay_salary(self):
-        to_pay = super().pay_salary()
-        return to_pay * self.liczba
+def test_car():
+    car = ElectricCar(100)
+    assert car.drive(70) == 30
+    assert car.drive(50) == 30
+    assert car.drive(50) == 0
+    car.charge()
+    assert car.drive(50) == 50

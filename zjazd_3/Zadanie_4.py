@@ -1,6 +1,9 @@
-class Basket:
+class Basket(object):
     def __init__(self):
-        self.basket = set()
+        self.products = []
+
+    def __str__(self):
+        return "Basket"
 
     def add_product(self,product,ilosc):
         self.ilosc = ilosc
@@ -23,8 +26,12 @@ def test_product():
     assert product.nazwa == "Woda"
     assert product.cena == 10.99
 
-def test_basket1():
+def test_create_basket():
     basket = Basket()
-    product = Product(1,'Woda',10.00)
-    basket.add_product(product,5)
-    assert basket.count_total_price() == 50.00
+    assert str(basket) =="Basket"
+    assert basket.products == []
+
+def test_add_product_to_basket():
+    basket = Basket()
+    product = Product(1,'Woda',10.99)
+    basket.add_basket(product,5)

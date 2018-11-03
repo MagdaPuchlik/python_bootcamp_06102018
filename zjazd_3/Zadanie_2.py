@@ -18,9 +18,39 @@ class Employee:
             self.time =0
             return to_pay
         else:
-            to_pay2 = (self.time - 8)*self.stawka*2 +800
+            to_pay = (self.time - 8)*self.stawka*2 +800
             self.time = 0
-            return to_pay2
+            return to_pay
+
+
+class PremiumEmployee(Employee):
+
+    def __init__(self, imie, nazwisko,stawka):
+        super().__init__(imie, nazwisko, stawka) #pobieram wszystko z inita klasy z której dziedziczę czyli z Employee
+        self.ekstra = 0 #dodaję brakującą metodę
+
+    def give_bonus(self, bonus):
+        self.ekstra = bonus
+
+    def pay_salary(self):
+        to_pay = super().pay_salary()
+        return to_pay + self.ekstra
+
+class Company(Employee):
+    def __init__(self,imie, nazwisko, stawka):
+        super().__init__(imie, nazwisko, stawka)
+        self.firma = 0
+        self.liczba = 0
+
+    def give_firma(self, company):
+        self.firma = company
+
+    def give_liczba(self, size):
+        self.licza = size
+
+    def pay_salary(self):
+        to_pay = super().pay_salary()
+        return to_pay * self.liczba
 
 
 def test_employee():
@@ -51,3 +81,14 @@ def test_pay_salary4():
     pracownik.register_time(5)
     pracownik.register_time(5)
     assert pracownik.pay_salary() == 1200
+
+def test_premium():
+    pracownik = PremiumEmployee('Jan', 'Nowak', 100.0)
+    pracownik.register_time(5)
+    pracownik.give_bonus(1000.0)
+    assert pracownik.pay_salary()==1500.0
+
+def test_company():
+    pracownik = Employee('Jan', 'Nowak', 100.0)
+    pracownik.register_time(5)
+

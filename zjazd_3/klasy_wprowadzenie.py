@@ -23,7 +23,6 @@ print(type(x),type(napis),type(y),type(slownik), type(foo))
 ### class Animal() <- nawias może być ale nie musi tzn, że możemy to zapisać:
 # class Animal:
 
-
 # definicja klasy
 class Animal:
 

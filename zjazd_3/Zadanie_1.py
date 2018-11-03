@@ -12,7 +12,6 @@ class Product:
         return f'Produkt "{self.nazwa}" , id:{self.ID}, cena:{self.cena} PLN'
 
 
-
 def test_product():
     product = Product(1,'Woda',10.99)
     assert product.ID ==1

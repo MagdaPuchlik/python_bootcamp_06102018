@@ -2,7 +2,6 @@
 
 class dog:
 
-
     def __init__(self):
         self.energy = 10
 

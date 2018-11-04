@@ -3,7 +3,7 @@ user_total_time = {}
 
 with open("Dane/logs.txt") as f:
     for line in f:
-        user,typ,czas = line.split(';')
+        user,typ,czas = line.split(';') # podział pliku według znaku ";"
         czas = int(czas)
         if typ == 'LOGIN':
             login[user]=czas

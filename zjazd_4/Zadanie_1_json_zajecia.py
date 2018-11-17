@@ -32,6 +32,6 @@ if komenda == 'd':
 elif komenda == "w":
         print("Pracownicy:")
         for i, pracownik in enumerate(pracownicy, start=1):
-            print(f"[{i}] {pracownik['imie']}{pracownik['nazwisko']} - rok: {pracownik['rok urodzenia']} , pensja {pracownik['pensja']} PLN")
+            print(f"[{i}] {pracownik['imie']} {pracownik['nazwisko']} - rok: {pracownik['rok urodzenia']} , pensja {pracownik['pensja']} PLN")
 else:
         print("Dokonano złego wyboru")

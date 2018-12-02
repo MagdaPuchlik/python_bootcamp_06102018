@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<table>
+
+{%for m in products%}
+    <tr>
+        <td>{{m.nazwa}}</td>
+        <td>{{m.opis}}</td>
+        <td>{{m.cena}}</td>
+        <td>{{m.status}}</td>
+    </tr>
+{% endfor %}
+
+</table>
+
+{% endblock %}
